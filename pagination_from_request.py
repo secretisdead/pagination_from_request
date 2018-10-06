@@ -13,7 +13,11 @@ def pagination_from_request(sort, order, page, perpage):
 		pagination['order'] = request.args['order']
 	if 'page' in request.args:
 		pagination['page'] = int(request.args['page'])
-	if 'perpage' in request.args and request.args['perpage'] and 0 < int(request.args['perpage']):
+	if (
+			'perpage' in request.args
+			and request.args['perpage']
+			and 0 < int(request.args['perpage'])
+		):
 		pagination['perpage'] = int(request.args['perpage'])
 
 	return pagination
